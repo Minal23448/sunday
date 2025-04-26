@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Sunday</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            font-size: 1.5em;
+            color: #555;
+        }
+        .celebrate {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #d17c5e;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="mainHeading"></h1>
+    <p id="message"></p>
+
+    <script>
+        function checkSunday() {
+            const today = new Date();
+            const day = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+            const heading = document.getElementById('mainHeading');
+            const message = document.getElementById('message');
+
+            if (day === 0) {
+                heading.textContent = "Happy Sunday! 🌞";
+                message.innerHTML = "<span class='celebrate'>Relax, Recharge and Enjoy!</span>";
+            } else {
+                heading.textContent = "It's not Sunday yet!";
+                message.textContent = "Stay motivated. Sunday is coming!";
+            }
+        }
+
+        checkSunday();
+    </script>
+
+</body>
+</html>
